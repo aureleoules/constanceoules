@@ -10,9 +10,25 @@ import Contact from 'routes/Contact';
 
 import { Router } from 'preact-router';
 
+import MobileLogo from 'assets/icons/logo_mobile.svg';
+
 import strings from 'strings';
 
 class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            mobileView: window.innerWidth <= 600
+        }
+    }
+
+    componentDidMount() {
+        window.onresize = () => {
+            this.setState({mobileView: window.innerWidth <= 600})
+        }
+    }
+
     render() {
 
         const routes = [
@@ -32,7 +48,12 @@ class App extends React.Component {
 
         return (
             <div>
-                <Sidemenu routes={routes}/>
+                <Sidemenu isMobile={this.state.mobileView} routes={routes}/>
+                {this.state.mobileView && (
+                    <div className="mobile-logo-container">
+                        <img src={MobileLogo} alt="mobile"/>
+                    </div>
+                )}
                 <div className="app">
                     <Router>
                         <Home path="/"/>

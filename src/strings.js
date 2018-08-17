@@ -4,7 +4,7 @@ const strings = {
     "fr": {
         "SIDEMENU_PROJECTS": "Projets",
         "SIDEMENU_ABOUT": "À propos",
-        "SIDEMENU_CONTACT": "Me contacter",
+        "SIDEMENU_CONTACT": "Contact",
 
         "ABOUT_DESCRIPTION": "Qui eu et nostrud ex officia aliqua. Consectetur laborum cupidatat laborum amet anim enim. Aliquip et exercitation occaecat occaecat et ea adipisicing officia adipisicing do deserunt nulla excepteur. Sit laborum in ad esse ad officia sunt. Culpa in occaecat laboris veniam commodo. Fugiat elit laboris non magna dolor non veniam enim duis do amet dolor non adipisicing."
     },

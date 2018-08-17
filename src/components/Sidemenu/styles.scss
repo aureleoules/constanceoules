@@ -6,7 +6,53 @@ div.sidemenu {
     left: 0;
     position: absolute;
 
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        justify-content: left;
+
+        .container {
+            background: white;
+            opacity: 0.7;
+            width: 0px;
+            padding-top: 50px;
+            padding-left: 25px;
+            font-size: 28px;
+            font-weight: 300;
+
+            &.open {
+                width: 50%;
+
+                li {
+                    opacity: 1;
+                }
+            }
+
+            li {
+                margin: 0!important;
+                opacity: 0;
+            }
+        }
+    }
+
+    .hamburger {
+        position: absolute;
+        top: 20px;
+        left:20px;
+        width: 35px;
+        cursor: pointer;
+    }
+
+    .mobile-instagram {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 35px;
+        cursor: pointer;
+    }
+
     .container {
+        z-index: 1;
+        transition: width 0.1s ease-in;
         .logo {
             padding-top: 55px;
             width: 125px;

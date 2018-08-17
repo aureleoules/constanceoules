@@ -24,6 +24,13 @@ body, html, #root {
     height: 100%;
     position: absolute;
     left: 33%;
+
+    @media screen and (max-width: 600px) {
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 }
 
 #root > div {
@@ -34,3 +41,14 @@ div {
     width: auto;
     height: auto;
 }
+
+.mobile-logo-container {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+
+    img {
+        width: 225px;
+    }
+}
+

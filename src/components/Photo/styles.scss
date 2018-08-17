@@ -5,6 +5,10 @@
     justify-content: center;
     margin: 15px 0;
     cursor: pointer;
+
+    * {
+        cursor: pointer;
+    }
     
     img {
         transition: opacity 150ms ease-in;
