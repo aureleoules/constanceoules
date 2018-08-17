@@ -12,11 +12,14 @@ body, html, #root {
     height: 100%;
     margin: 0;
     font-family: 'Avenir-Next';
+    background: #fff;
+    color: #445468;
 }
 
 .app {
     margin-left: 250px;
     height: 100%;
+    position: relative;
 }
 
 #root > div {

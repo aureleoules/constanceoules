@@ -1,0 +1,21 @@
+.photo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 150ms ease-in;
+    margin: 15px 0;
+    h1 {
+        position: absolute;
+        margin: 0;
+        transition: opacity 150ms ease-in;
+        opacity: 0;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        h1 {
+            opacity: 1;
+        }
+    }
+}

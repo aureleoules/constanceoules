@@ -1,5 +1,10 @@
 import React from 'preact';
-import Logo from '../Logo';
+
+import Logo from 'assets/icons/logo.svg';
+import InstagramIcon from 'assets/icons/instagram.svg';
+import PinterestIcon from 'assets/icons/pinterest.svg';
+
+import { Link } from 'preact-router/match';
 
 import './styles.scss';
 
@@ -8,7 +13,9 @@ class Sidemenu extends React.Component {
         return (
             <div className="sidemenu">
                 <div className="container">
-                    <div className="logo">LOGO</div>
+                    <Link href="/">
+                        <img src={Logo} className="logo" alt="logo"/>
+                    </Link>
                     <ul>
                         {this.props.routes.map((route, i) => (
                             <li>
@@ -17,8 +24,12 @@ class Sidemenu extends React.Component {
                         ))}
                     </ul>
                     <div className="socials">
-                        <span>instagram</span>
-                        <span>pinterest</span>
+                        <a href="">
+                            <img src={InstagramIcon} alt="instagram"/>
+                        </a>
+                        <a href="">
+                            <img src={PinterestIcon} alt="pinterest"/>
+                        </a>
                     </div>
                 </div>
             </div>
