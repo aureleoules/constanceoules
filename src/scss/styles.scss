@@ -1,0 +1,29 @@
+@import "mixins";
+
+@font-face {
+    font-family: 'Avenir-Next';
+    src: url('../assets/fonts/AvenirNextCondensed-Regular.ttf');
+}
+
+@include font-face(D-Din-Condensed-Bold, "../assets/fonts/D-DINCondensed-Bold", 500, bold, otf);
+
+body, html, #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Avenir-Next';
+}
+
+.app {
+    margin-left: 250px;
+    height: 100%;
+}
+
+#root > div {
+    height: 100%;
+}
+
+div {
+    width: auto;
+    height: auto;
+}

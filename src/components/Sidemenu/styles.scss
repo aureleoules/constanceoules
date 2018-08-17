@@ -1,0 +1,38 @@
+div.sidemenu {
+    width: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+
+    .container {
+        .logo {
+            padding-top: 55px;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            padding-top: 65px;
+    
+            li {
+                margin-bottom: 15px;
+                a {
+                    text-transform: uppercase;
+                    font-family: 'Avenir-Next';
+                    text-decoration: none;
+                    color: #34495e;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .socials {
+            span {
+                margin-right: 5px;
+            }
+        }
+    }
+
+}
