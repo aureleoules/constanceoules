@@ -46,7 +46,7 @@ div {
     display: flex;
     justify-content: center;
     height: 150px;
-
+    user-select: none;
     img {
         width: 225px;
     }

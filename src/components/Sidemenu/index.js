@@ -20,7 +20,7 @@ class Sidemenu extends React.Component {
 
     componentDidMount() {
         document.body.onclick = e => {
-            if(e.target.id !== "hamburger") {
+            if(e.target.id !== "hamburger" && this.state.open) {
                 this.toggle();
             }
         }
@@ -34,7 +34,11 @@ class Sidemenu extends React.Component {
         return (
             <div className="sidemenu">
                 {this.props.isMobile && <img id="hamburger" onClick={this.toggle} src={HamburgerIcon} alt="hamburger" className="hamburger"/>}
-                {this.props.isMobile && <img src={InstagramIcon} alt="instagram" className="mobile-instagram"/>}
+                {this.props.isMobile && (
+                    <a target="_blank" href="https://www.instagram.com/constanceoules/">
+                        <img src={InstagramIcon} alt="instagram" className="mobile-instagram"/>
+                    </a>
+                )}
                 <div className={["container", this.state.open ? "open" : ""].join(" ")}>
                     {!this.props.isMobile && <Link href="/">
                         <img src={Logo} className="logo" alt="logo"/>
