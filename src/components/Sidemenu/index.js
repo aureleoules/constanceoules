@@ -33,9 +33,12 @@ class Sidemenu extends React.Component {
     render() {
         return (
             <div className="sidemenu">
-                {this.props.isMobile && <img id="hamburger" onClick={this.toggle} src={HamburgerIcon} alt="hamburger" className="hamburger"/>}
+                {this.props.isMobile && <a href="#menu">
+                        <img id="hamburger" onClick={this.toggle} src={HamburgerIcon} alt="hamburger" className="hamburger"/>
+                    </a>
+                }
                 {this.props.isMobile && (
-                    <a target="_blank" href="https://www.instagram.com/constanceoules/">
+                    <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/constanceoules/">
                         <img src={InstagramIcon} alt="instagram" className="mobile-instagram"/>
                     </a>
                 )}
@@ -51,10 +54,10 @@ class Sidemenu extends React.Component {
                         ))}
                     </ul>
                     {!this.props.isMobile && <div className="socials">
-                        <a target="_blank" href="https://www.instagram.com/constanceoules/">
+                        <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/constanceoules/">
                             <img src={InstagramIcon} alt="instagram"/>
                         </a>
-                        <a target="_blank" href="https://www.pinterest.fr/cooless/">
+                        <a rel="noopener noreferrer" target="_blank" href="https://www.pinterest.fr/cooless/">
                             <img src={PinterestIcon} alt="pinterest"/>
                         </a>
                     </div>}

@@ -3,7 +3,6 @@ import React from 'preact';
 import ContactPhoto from 'assets/photos/contact.jpg';
 
 import './styles.scss';
-import strings from '../../strings';
 
 class Contact extends React.Component {
     render() {
