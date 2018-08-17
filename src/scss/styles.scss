@@ -14,12 +14,16 @@ body, html, #root {
     font-family: 'Avenir-Next';
     background: #fff;
     color: #445468;
+
+    a {
+        color: #445468!important;
+    }
 }
 
 .app {
-    margin-left: 250px;
     height: 100%;
-    position: relative;
+    position: absolute;
+    left: 33%;
 }
 
 #root > div {

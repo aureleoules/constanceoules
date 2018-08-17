@@ -3,18 +3,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 150ms ease-in;
     margin: 15px 0;
-    h1 {
-        position: absolute;
-        margin: 0;
+    cursor: pointer;
+    
+    img {
         transition: opacity 150ms ease-in;
-        opacity: 0;
+    }
+    .infos {
+        position: absolute;
+        text-align: center;
+        p, h1 {
+            margin: 0; 
+            opacity: 0;
+            transition: opacity 150ms ease-in;
+        }
+
+        h1 {
+            text-transform: uppercase;
+        }
+        p {
+            margin-top: -10px;
+        }
     }
 
     &:hover {
-        opacity: 0.8;
-        h1 {
+        img {
+            opacity: 0.7;
+        }
+        h1, p {
             opacity: 1;
         }
     }

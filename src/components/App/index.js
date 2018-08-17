@@ -2,27 +2,30 @@ import React from 'preact';
 
 import Sidemenu from '../Sidemenu';
 
-import Home from '../../routes/Home';
-import Projects from '../../routes/Projects';
-import About from '../../routes/About';
-import Contact from '../../routes/Contact';
+import Home from 'routes/Home';
+import Projects from 'routes/Projects';
+import Project from 'routes/Project';
+import About from 'routes/About';
+import Contact from 'routes/Contact';
 
 import { Router } from 'preact-router';
+
+import strings from 'strings';
 
 class App extends React.Component {
     render() {
 
         const routes = [
             {
-                title: "Projects",
+                title: strings.SIDEMENU_PROJECTS,
                 href: "/projects"
             },
             {
-                title: "About",
+                title: strings.SIDEMENU_ABOUT,
                 href: "/about"
             },
             {
-                title: "Contact",
+                title: strings.SIDEMENU_CONTACT,
                 href: "/contact"
             }
         ];
@@ -34,6 +37,7 @@ class App extends React.Component {
                     <Router>
                         <Home path="/"/>
                         <Projects path="/projects"/>
+                        <Project path="/project/:title"/>
                         <About path="/about"/>
                         <Contact path="/contact"/>
                     </Router>
