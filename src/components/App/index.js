@@ -48,7 +48,7 @@ class App extends React.Component {
             <div>
                 <Sidemenu isMobile={this.state.mobileView} routes={routes}/>
                 <div className="app">
-                    <Router>
+                    <Router onChange={() => window.scrollTo(0, 0)}>
                         <Home path="/"/>
                         <Projects path="/projects"/>
                         <Project path="/project/:title"/>

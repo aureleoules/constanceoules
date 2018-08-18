@@ -1,9 +1,24 @@
 .project {
+
+    .infos {
+        h3 {
+            text-align: center;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            margin: 0
+        }
+        p {
+            margin: 0;
+            text-align: center;
+        }
+    }
+
     .photo {
         margin: 15px 0;
     }
     p {
         max-width: 300px;
         white-space: pre-line;
+        text-align: justify;
     }
 }

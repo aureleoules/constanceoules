@@ -7,6 +7,7 @@ import { getLanguage } from 'utils';
 
 import './styles.scss';
 
+
 class Project extends React.Component {
 
     constructor(props) {
@@ -18,6 +19,8 @@ class Project extends React.Component {
         projects.forEach(project => {
             if(project.title === this.props.title) {
                 this.project = project;
+
+                document.title = "Constance Oulès - " + project.title;
 
                 this.showcaseImage = require('../../assets/photos/' + project.title + '/' + project.showcase);
             }
@@ -34,13 +37,13 @@ class Project extends React.Component {
     render() {
         return (
             <div className="project">
-                <h1>{this.project.title}</h1>
-                <Photo 
-                    title={this.project.title} 
-                    subtitle={this.project.subtitle}
-                    always 
+                <Photo
                     url={this.showcaseImage}
                 />
+                <div className="infos">
+                    <h3>{this.project.title}</h3>
+                    <p>{this.project.subtitle}</p>
+                </div>
                 <p>{this.project.description[getLanguage()]}</p>
                 {this.getPhotos()}
             </div>

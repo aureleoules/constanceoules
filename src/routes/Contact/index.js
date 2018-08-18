@@ -5,6 +5,11 @@ import ContactPhoto from 'assets/photos/contact.jpg';
 import './styles.scss';
 
 class Contact extends React.Component {
+
+    componentDidMount() {
+        document.title = "Constance Oulès - Contact"
+    }
+
     render() {
         return (
             <div className="contact">

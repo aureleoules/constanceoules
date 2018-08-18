@@ -19,10 +19,15 @@
     .infos {
         position: absolute;
         text-align: center;
+        
         p, h1 {
             margin: 0; 
             opacity: 0;
             transition: opacity 150ms ease-in;
+
+            @media screen and (max-width: 600px) {
+                opacity: 1;
+            }
         }
 
         h1 {
