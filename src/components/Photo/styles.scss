@@ -3,8 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 15px 0;
     cursor: pointer;
+    user-select: none;
 
     * {
         cursor: pointer;
@@ -12,6 +12,7 @@
     
     img {
         transition: opacity 150ms ease-in;
+        width: 300px;
     }
     .infos {
         position: absolute;

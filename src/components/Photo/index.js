@@ -9,7 +9,7 @@ class Photo extends React.Component {
                 <img alt={this.props.title} src={this.props.url}/>
                 <div className="infos">
                     <h1>{this.props.title}</h1>
-                    <p>{this.props.description}</p>
+                    <p>{this.props.subtitle}</p>
                 </div>
             </div>
         )

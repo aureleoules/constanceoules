@@ -1,0 +1,66 @@
+[
+    {
+        "title": "Simart",
+        "subtitle": "PARIS 18e",
+        "description": {
+            "fr": "Rénovation partielle et décoration d’un appartement de 30m².\n\nAnnée : 2016\nPhotos : Hervé Goluza",
+            "en": "Partial renovation and decoration of a 30m² apartment.\n\nYear: 2016\nPhotos: Hervé Goluza"
+        },
+        "showcase": "1.jpg",
+        "pictures": [
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg",
+            "6.jpg",
+            "7.jpg",
+            "8.jpg",
+            "9.jpg",
+            "10.jpg",
+            "11.jpg",
+            "12.jpg"
+        ]
+    },
+    {
+        "title": "Saint Germain",
+        "subtitle": "Paris 5e",
+        "description": {
+            "fr": "Rénovation complète d’un appartement de 140m².\n\nAnnée : 2018\nPhotos : Hervé Goluza",
+            "en": "Complete renovation of a 140m² apartment.\n\nYear: 2018\nPhotos: Hervé Goluza"
+        },
+        "showcase": "20.jpg",
+        "pictures": [
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg",
+            "6.jpg",
+            "7.jpg",
+            "8.jpg",
+            "9.jpg",
+            "10.jpg",
+            "11.jpg",
+            "12.jpg",
+            "13.jpg",
+            "14.jpg",
+            "15.jpg",
+            "16.jpg",
+            "17.jpg",
+            "18.jpg",
+            "19.jpg",
+
+            "21.jpg",
+            "22.jpg",
+            "23.jpg",
+            "24.jpg",
+            "25.jpg",
+            "26.jpg",
+            "27.jpg",
+            "28.jpg",
+            "29.jpg",
+            "30.jpg",
+            "31.jpg"
+        ]
+    }
+]
