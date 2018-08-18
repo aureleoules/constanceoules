@@ -6,6 +6,8 @@
     cursor: pointer;
     user-select: none;
 
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
     * {
         cursor: pointer;
     }
@@ -28,6 +30,14 @@
         }
         p {
             margin-top: -10px;
+        }
+    }
+    &.always {
+        img {
+            opacity: 0.7;
+        }
+        h1, p {
+            opacity: 1;
         }
     }
 

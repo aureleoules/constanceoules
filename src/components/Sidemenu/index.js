@@ -4,6 +4,7 @@ import Logo from 'assets/icons/logo.svg';
 import InstagramIcon from 'assets/icons/instagram.svg';
 import PinterestIcon from 'assets/icons/pinterest.svg';
 import HamburgerIcon from 'assets/icons/hamburger.svg';
+import MobileLogo from 'assets/icons/logo_mobile.svg';
 
 import { Link } from 'preact-router/match';
 
@@ -33,6 +34,13 @@ class Sidemenu extends React.Component {
     render() {
         return (
             <div className="sidemenu">
+                {this.props.isMobile && (
+                    <div className="mobile-logo-container">
+                        <Link href="/">
+                            <img src={MobileLogo} alt="mobile"/>
+                        </Link>
+                    </div>
+                )}
                 {this.props.isMobile && <a href="#menu">
                         <img id="hamburger" onClick={this.toggle} src={HamburgerIcon} alt="hamburger" className="hamburger"/>
                     </a>

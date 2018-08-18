@@ -1,5 +1,5 @@
 @import "mixins";
-
+@import "animations";
 @font-face {
     font-family: 'Avenir-Next';
     src: url('../assets/fonts/AvenirNextCondensed-Regular.ttf');
@@ -28,6 +28,7 @@ body, html, #root {
 
     @media screen and (max-width: 600px) {
         left: 0;
+        top: 150px;
         display: flex;
         justify-content: center;
         width: 100%;
@@ -43,14 +44,3 @@ div {
     width: auto;
     height: auto;
 }
-
-.mobile-logo-container {
-    display: flex;
-    justify-content: center;
-    height: 150px;
-    user-select: none;
-    img {
-        width: 225px;
-    }
-}
-

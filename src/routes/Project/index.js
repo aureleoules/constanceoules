@@ -35,7 +35,12 @@ class Project extends React.Component {
         return (
             <div className="project">
                 <h1>{this.project.title}</h1>
-                <Photo url={this.showcaseImage}/>
+                <Photo 
+                    title={this.project.title} 
+                    subtitle={this.project.subtitle}
+                    always 
+                    url={this.showcaseImage}
+                />
                 <p>{this.project.description[getLanguage()]}</p>
                 {this.getPhotos()}
             </div>
