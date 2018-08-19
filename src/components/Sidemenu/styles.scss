@@ -6,7 +6,6 @@ div.sidemenu {
     left: 0;
     position: absolute;
 
-
     .mobile-logo-container {
         width: 100%;
         display: flex;
@@ -72,11 +71,13 @@ div.sidemenu {
     .container {
         z-index: 1;
         transition: width 0.150s ease-in;
+        
         .logo {
             padding-top: 55px;
             width: 125px;
             margin-left: -10px;
         }
+        
         ul {
             list-style: none;
             margin: 0;
@@ -91,7 +92,13 @@ div.sidemenu {
                     text-decoration: none;
                     color: #34495e;
                     font-size: 16px;
-                    animation: tracking-in-expand 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both
+                    animation: tracking-in-expand 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+                    transform: scale(1);
+                    transition: transform 0.1s ease-in;
+                    display: inline-block;
+                    &:hover {
+                        transform: scale(1.1)
+                    }
                 }
             }
         }
@@ -101,6 +108,14 @@ div.sidemenu {
                 margin-right: 5px;
                 width: 20px;
                 animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            }
+            a {
+                transform: scale(1);
+                transition: transform 0.1s ease-in;
+                display: inline-block;
+                &:hover {
+                    transform: scale(1.1)
+                }
             }
         }
     }

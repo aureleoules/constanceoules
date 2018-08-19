@@ -30,7 +30,7 @@ class Project extends React.Component {
     getPhotos = () => {
         return this.project.pictures.map(name => {
             const picture = require('../../assets/photos/' + this.project.title + '/' + name)
-            return <Photo url={picture}/>
+            return <Photo src={picture}/>
         });
     }
 
@@ -38,7 +38,7 @@ class Project extends React.Component {
         return (
             <div className="project">
                 <Photo
-                    url={this.showcaseImage}
+                    src={this.showcaseImage}
                 />
                 <div className="infos">
                     <h3>{this.project.title}</h3>

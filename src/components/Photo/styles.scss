@@ -12,10 +12,19 @@
         cursor: pointer;
     }
     
+    overflow: hidden;
+        
     img {
-        transition: opacity 150ms ease-in;
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
         width: 300px;
     }
+    &:hover {
+        img {
+            opacity: 0.7;
+        }
+    }
+
     .infos {
         position: absolute;
         text-align: center;
@@ -33,23 +42,14 @@
         h1 {
             text-transform: uppercase;
         }
-        p {
-            margin-top: -10px;
-        }
     }
     &.always {
-        img {
-            opacity: 0.7;
-        }
         h1, p {
             opacity: 1;
         }
     }
 
     &:hover {
-        img {
-            opacity: 0.7;
-        }
         h1, p {
             opacity: 1;
         }

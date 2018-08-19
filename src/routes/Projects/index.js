@@ -24,7 +24,7 @@ class Projects extends React.Component {
                     <Photo 
                         title={project.title} 
                         subtitle={project.subtitle} 
-                        url={image}
+                        src={image}
                     />
                 </Link>
             )

@@ -6,7 +6,7 @@ class Photo extends React.Component {
     render() {
         return (
             <div onClick={this.props.onClick} className={["photo", this.props.always ? "always":""].join(" ")}>
-                <img alt={this.props.title} src={this.props.url}/>
+                <img alt={this.props.title || this.props.alt} src={this.props.src}/>
                 <div className="infos">
                     <h1>{this.props.title}</h1>
                     <p>{this.props.subtitle}</p>

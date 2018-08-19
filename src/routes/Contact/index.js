@@ -4,6 +4,8 @@ import ContactPhoto from 'assets/photos/contact.jpg';
 
 import './styles.scss';
 
+import Photo from 'components/Photo';
+
 class Contact extends React.Component {
 
     componentDidMount() {
@@ -13,7 +15,7 @@ class Contact extends React.Component {
     render() {
         return (
             <div className="contact">
-                <img src={ContactPhoto} alt="contact"/>
+                <Photo src={ContactPhoto} alt="contact"/>
                 <p>
                     26 rue Simart
                     <br/>
