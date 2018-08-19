@@ -22,6 +22,7 @@ class Projects extends React.Component {
             return (
                 <Link key={i} href={"/project/" + project.title}>
                     <Photo 
+                        fade
                         title={project.title} 
                         subtitle={project.subtitle} 
                         src={image}
