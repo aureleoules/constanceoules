@@ -57,7 +57,7 @@ class Sidemenu extends React.Component {
                     <ul>
                         {this.props.routes.map((route, i) => (
                             <li>
-                                <a href={route.href}>{route.title}</a>
+                                <a className={this.props.route === route.href ? "active" :""} href={route.href}>{route.title}</a>
                             </li>
                         ))}
                     </ul>

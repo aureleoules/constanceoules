@@ -99,6 +99,10 @@ div.sidemenu {
                     &:hover {
                         transform: scale(1.1)
                     }
+
+                    &.active {
+                        text-decoration: underline;
+                    }
                 }
             }
         }

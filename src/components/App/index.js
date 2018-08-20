@@ -17,7 +17,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mobileView: window.innerWidth <= 600
+            mobileView: window.innerWidth <= 600,
+            url: "/"
         }
     }
 
@@ -25,6 +26,11 @@ class App extends React.Component {
         window.onresize = () => {
             this.setState({mobileView: window.innerWidth <= 600})
         }
+    }
+
+    onRouteChange = ({url}) => {
+        window.scrollTo(0, 0)
+        this.setState({url});
     }
 
     render() {
@@ -44,11 +50,12 @@ class App extends React.Component {
             }
         ];
 
+
         return (
             <div>
-                <Sidemenu isMobile={this.state.mobileView} routes={routes}/>
+                <Sidemenu route={this.state.url} isMobile={this.state.mobileView} routes={routes}/>
                 <div className="app">
-                    <Router onChange={() => window.scrollTo(0, 0)}>
+                    <Router onChange={this.onRouteChange}>
                         <Home path="/"/>
                         <Projects path="/projects"/>
                         <Project path="/project/:title"/>
