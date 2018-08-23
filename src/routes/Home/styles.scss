@@ -6,7 +6,7 @@
         display: block;
         height: 100%;
         width: 100%;
-        object-fit: cover;
+        // object-fit: cover;
     }
 
     @media screen and(max-width: 600px) {
@@ -64,19 +64,13 @@
         .top {
             position: absolute;
             top: 0;
-            img {
-                // transform: scaleY(0.98);
-                height: 218px;
-            }
+            height: calc(50% - 2px);
         }
 
         .bottom {
             position: absolute;
             bottom: 0;
-            img {
-                // transform: scaleY(0.98);
-                height: 218px;
-            }
+            height: calc(50% - 2px);
         }
     }
 }
