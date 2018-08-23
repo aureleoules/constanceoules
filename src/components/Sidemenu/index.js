@@ -5,6 +5,7 @@ import InstagramIcon from 'assets/icons/instagram.svg';
 import PinterestIcon from 'assets/icons/pinterest.svg';
 import HamburgerIcon from 'assets/icons/hamburger.svg';
 import MobileLogo from 'assets/icons/logo_mobile.svg';
+import ClickOutside from 'react-click-outside';
 
 import { Link } from 'preact-router/match';
 
@@ -17,13 +18,12 @@ class Sidemenu extends React.Component {
         this.state = {
             open: false
         }
+        document.body.onclick = this.onClickAway;
     }
-
-    componentDidMount() {
-        document.body.onclick = e => {
-            if(e.target.id !== "hamburger" && this.state.open) {
-                this.toggle();
-            }
+    
+    onClickAway = e => {
+        if(e.target.id !== "hamburger" && this.state.open) {
+            this.toggle();
         }
     }
 
@@ -33,44 +33,46 @@ class Sidemenu extends React.Component {
 
     render() {
         return (
-            <div className="sidemenu">
-                {this.props.isMobile && (
-                    <div className="mobile-logo-container">
-                        <Link onClick={() => this.setState({open: false})} href="/">
-                            <img src={MobileLogo} alt="mobile"/>
-                        </Link>
-                    </div>
-                )}
-                {this.props.isMobile && <a href="#menu">
-                        <img id="hamburger" onClick={this.toggle} src={HamburgerIcon} alt="hamburger" className="hamburger"/>
-                    </a>
-                }
-                {this.props.isMobile && (
-                    <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/constanceoules/">
-                        <img src={InstagramIcon} alt="instagram" className="mobile-instagram"/>
-                    </a>
-                )}
-                <div style={{height: window.outerHeight}} className={["container", this.state.open ? "open" : ""].join(" ")}>
-                    {!this.props.isMobile && <Link href="/">
-                        <img src={Logo} className="logo" alt="logo"/>
-                    </Link>}
-                    <ul>
-                        {this.props.routes.map((route, i) => (
-                            <li>
-                                <a className={this.props.route === route.href ? "active" :""} href={route.href}>{route.title}</a>
-                            </li>
-                        ))}
-                    </ul>
-                    {!this.props.isMobile && <div className="socials">
+            <ClickOutside onClickOutside={this.onClickAway}>
+                <div className="sidemenu">
+                    {this.props.isMobile && (
+                        <div className="mobile-logo-container">
+                            <Link onClick={() => this.setState({open: false})} href="/">
+                                <img src={MobileLogo} alt="mobile"/>
+                            </Link>
+                        </div>
+                    )}
+                    {this.props.isMobile && <a href="#menu">
+                            <img id="hamburger" onClick={this.toggle} src={HamburgerIcon} alt="hamburger" className="hamburger"/>
+                        </a>
+                    }
+                    {this.props.isMobile && (
                         <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/constanceoules/">
-                            <img src={InstagramIcon} alt="instagram"/>
+                            <img src={InstagramIcon} alt="instagram" className="mobile-instagram"/>
                         </a>
-                        <a rel="noopener noreferrer" target="_blank" href="https://www.pinterest.fr/cooless/">
-                            <img src={PinterestIcon} alt="pinterest"/>
-                        </a>
-                    </div>}
+                    )}
+                    <div style={{height: window.outerHeight}} className={["container", this.state.open ? "open" : ""].join(" ")}>
+                        {!this.props.isMobile && <Link href="/">
+                            <img src={Logo} className="logo" alt="logo"/>
+                        </Link>}
+                        <ul>
+                            {this.props.routes.map((route, i) => (
+                                <li>
+                                    <a className={this.props.route === route.href ? "active" :""} href={route.href}>{route.title}</a>
+                                </li>
+                            ))}
+                        </ul>
+                        {!this.props.isMobile && <div className="socials">
+                            <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/constanceoules/">
+                                <img src={InstagramIcon} alt="instagram"/>
+                            </a>
+                            <a rel="noopener noreferrer" target="_blank" href="https://www.pinterest.fr/cooless/">
+                                <img src={PinterestIcon} alt="pinterest"/>
+                            </a>
+                        </div>}
+                    </div>
                 </div>
-            </div>
+            </ClickOutside>
         )
     }
 }

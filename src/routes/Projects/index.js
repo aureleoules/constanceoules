@@ -20,7 +20,7 @@ class Projects extends React.Component {
         return projects.map((project, i) => {
             const image = require('../../assets/photos/' + project.title + '/' + project.showcase);
             return (
-                <Link key={i} href={"/project/" + project.title}>
+                <Link className="project-link" key={i} href={"/project/" + project.title}>
                     <Photo 
                         fade
                         title={project.title} 
