@@ -36,7 +36,7 @@ class Sidemenu extends React.Component {
             <div className="sidemenu">
                 {this.props.isMobile && (
                     <div className="mobile-logo-container">
-                        <Link href="/">
+                        <Link onClick={() => this.setState({open: false})} href="/">
                             <img src={MobileLogo} alt="mobile"/>
                         </Link>
                     </div>
@@ -50,7 +50,7 @@ class Sidemenu extends React.Component {
                         <img src={InstagramIcon} alt="instagram" className="mobile-instagram"/>
                     </a>
                 )}
-                <div className={["container", this.state.open ? "open" : ""].join(" ")}>
+                <div style={{height: window.outerHeight}} className={["container", this.state.open ? "open" : ""].join(" ")}>
                     {!this.props.isMobile && <Link href="/">
                         <img src={Logo} className="logo" alt="logo"/>
                     </Link>}
