@@ -1,10 +1,21 @@
 .about {
     padding-top: 50px;
-    img {
-        width: 300px;
+    .photo {
+
+        @media screen and (max-width: 600px) {
+            justify-content: center;
+        } 
+        justify-content: left;
     }
     p {
-        max-width: 300px;
-        padding-bottom: 15px;
+        max-width: 90%;
+        padding-top: 30px;
+        white-space: pre-wrap;
+        margin: 0;
+        text-align: justify;
+        @media screen and (max-width: 600px) {
+            padding-left: 10%;
+            padding-right: 10%;
+        } 
     }
 }
