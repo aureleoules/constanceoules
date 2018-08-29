@@ -13,6 +13,9 @@ class Project extends React.Component {
     constructor(props) {
         super(props);
         this.project = {};
+        this.state = {
+            zoom: null
+        }
     }
 
     componentWillMount() {
@@ -28,15 +31,24 @@ class Project extends React.Component {
     }
 
     getPhotos = () => {
-        return this.project.pictures.map(name => {
+        return this.project.pictures.map((name, i) => {
             const picture = require('../../assets/photos/' + this.project.title + '/' + name)
-            return <Photo src={picture}/>
+            return <Photo 
+                id={i} 
+                zoom={this.state.zoom === i}
+                zoomable
+                onClick={() => this.setState({zoom: i})} 
+                src={picture}
+                isMobile={this.props.isMobile}
+                removeZoom={e => this.setState({zoom: null})}
+            />
         });
     }
 
     render() {
         return (
             <div className="project">
+            {this.state.zoom}
                 <Photo
                     src={this.showcaseImage}
                 />

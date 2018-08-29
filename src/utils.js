@@ -6,3 +6,12 @@ export const getLanguage = () => {
     }
     return lang;
 }
+
+export const setLanguage = lang => {
+    localStorage.setItem("language", lang);
+    window.dispatchEvent(new CustomEvent("language"), {
+        detail: {
+            language: lang
+        }
+    });
+}

@@ -11,21 +11,25 @@ import Contact from 'routes/Contact';
 import { Router } from 'preact-router';
 
 import strings from 'strings';
+import { getLanguage } from '../../utils';
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            mobileView: window.innerWidth <= 600,
+            mobileView: window.innerWidth <= 900,
             url: "/"
         }
     }
 
     componentDidMount() {
         window.onresize = () => {
-            this.setState({mobileView: window.innerWidth <= 600})
+            this.setState({mobileView: window.innerWidth <= 900})
         }
+        window.addEventListener("language", () => {
+            this.forceUpdate();
+        });
     }
 
     onRouteChange = ({url}) => {
@@ -37,28 +41,28 @@ class App extends React.Component {
 
         const routes = [
             {
-                title: strings.SIDEMENU_PROJECTS,
+                title: strings[getLanguage()].SIDEMENU_PROJECTS,
                 href: "/projects"
             },
             {
-                title: strings.SIDEMENU_ABOUT,
+                title: strings[getLanguage()].SIDEMENU_ABOUT,
                 href: "/about"
             },
             {
-                title: strings.SIDEMENU_CONTACT,
+                title: strings[getLanguage()].SIDEMENU_CONTACT,
                 href: "/contact"
             }
         ];
 
 
         return (
-            <div>
+            <div class="align-center">
                 <Sidemenu route={this.state.url} isMobile={this.state.mobileView} routes={routes}/>
                 <div className="app">
                     <Router onChange={this.onRouteChange}>
                         <Home path="/"/>
                         <Projects path="/projects"/>
-                        <Project path="/project/:title"/>
+                        <Project isMobile={this.state.mobileView} path="/project/:title"/>
                         <About path="/about"/>
                         <Contact path="/contact"/>
                     </Router>

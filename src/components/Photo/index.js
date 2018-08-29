@@ -1,19 +1,35 @@
 import React from 'preact';
 
 import './styles.scss';
+import ClickOutside from 'react-click-outside';
 
 class Photo extends React.Component {
+    onPhotoClick = e => {
+        if(this.props.zoom && e.target.id !== "picture") {
+            this.props.removeZoom();
+        } else {
+            this.props.onClick();
+        }
+    }
+
     render() {
         return (
             <div 
-                onClick={this.props.onClick} 
+                onClick={this.props.zoomable ? this.onPhotoClick : null}
+                id="photo"
                 className={
                 [
                     "photo", 
                     this.props.always ? "always":"", 
-                    this.props.fade ? "fade":""
+                    this.props.fade ? "fade":"",
+                    this.props.zoom ? "zoom": ""
                 ].join(" ")}>
-                <img alt={this.props.title || this.props.alt} src={this.props.src}/>
+                <div className="img-container">
+                    {this.props.zoom && <a className="cross">
+                        <img src={require("../../assets/icons/cross" + (this.props.isMobile ? "_mobile" : "") + ".svg")}/>
+                    </a>}
+                        <img id="picture" alt={this.props.title || this.props.alt} src={this.props.src}/>
+                </div>
                 <div className="infos">
                     <h1>{this.props.title}</h1>
                     <p>{this.props.subtitle}</p>

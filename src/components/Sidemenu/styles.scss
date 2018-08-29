@@ -4,13 +4,13 @@ div.sidemenu {
     display: flex;
     justify-content: center;
     left: 0;
-    position: absolute;
-
+    position: fixed;
+    z-index: 11;
     .mobile-logo-container {
         width: 100%;
         display: flex;
         justify-content: center;
-        height: 150px;
+        height: 1000px;
         position: absolute;
         user-select: none;
         img {
@@ -18,9 +18,10 @@ div.sidemenu {
         }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 900px) {
         width: 100%;
         justify-content: left;
+        position: absolute;
 
         .container {
             background: none;
@@ -53,7 +54,7 @@ div.sidemenu {
 
     .hamburger {
         position: absolute;
-        top: 20px;
+        top: 22px;
         left:20px;
         width: 35px;
         cursor: pointer;
@@ -61,7 +62,7 @@ div.sidemenu {
 
     .mobile-instagram {
         position: absolute;
-        top: 20px;
+        top: 22px;
         right: 20px;
         width: 35px;
         cursor: pointer;
@@ -73,7 +74,7 @@ div.sidemenu {
         transition: width 0.150s ease-in;
         
         .logo {
-            padding-top: 55px;
+            padding-top: 35px;
             width: 125px;
             margin-left: -10px;
         }

@@ -60,12 +60,15 @@ body, html, #root {
     }
 }
 
+.align-center {
+    display: flex;
+    justify-content: center;
+}
 .app {
     height: 100%;
     position: absolute;
-    left: 33%;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 900px) {
         left: 0;
         top: 150px;
         display: flex;

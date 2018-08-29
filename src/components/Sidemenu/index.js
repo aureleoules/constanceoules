@@ -10,6 +10,9 @@ import ClickOutside from 'react-click-outside';
 import { Link } from 'preact-router/match';
 
 import './styles.scss';
+import LanguageSelector from '../LanguageSelector';
+
+import {getLanguage, setLanguage} from 'utils';
 
 class Sidemenu extends React.Component {
 
@@ -40,6 +43,7 @@ class Sidemenu extends React.Component {
                             <Link onClick={() => this.setState({open: false})} href="/">
                                 <img src={MobileLogo} alt="mobile"/>
                             </Link>
+                            <LanguageSelector onSelect={lang => setLanguage(lang)} active={getLanguage()}/>
                         </div>
                     )}
                     {this.props.isMobile && <a href="#menu">
@@ -51,7 +55,7 @@ class Sidemenu extends React.Component {
                             <img src={InstagramIcon} alt="instagram" className="mobile-instagram"/>
                         </a>
                     )}
-                    <div style={{height: window.outerHeight}} className={["container", this.state.open ? "open" : ""].join(" ")}>
+                    <div className={["container", this.state.open ? "open" : ""].join(" ")}>
                         {!this.props.isMobile && <Link href="/">
                             <img src={Logo} className="logo" alt="logo"/>
                         </Link>}
@@ -61,6 +65,7 @@ class Sidemenu extends React.Component {
                                     <a className={this.props.route === route.href ? "active" :""} href={route.href}>{route.title}</a>
                                 </li>
                             ))}
+                            
                         </ul>
                         {!this.props.isMobile && <div className="socials">
                             <a rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/constanceoules/">
@@ -70,6 +75,9 @@ class Sidemenu extends React.Component {
                                 <img src={PinterestIcon} alt="pinterest"/>
                             </a>
                         </div>}
+                        {!this.props.isMobile && 
+                            <LanguageSelector onSelect={lang => setLanguage(lang)} active={getLanguage()}/>
+                        }
                     </div>
                 </div>
             </ClickOutside>

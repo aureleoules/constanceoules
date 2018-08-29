@@ -8,12 +8,12 @@ import { Link } from 'preact-router/match';
 import Photo from 'components/Photo';
 
 import strings from 'strings';
-
+import { getLanguage } from '../../utils';
 
 class Projects extends React.Component {
 
     componentDidMount() {
-        document.title = "Constance Oulès - " + strings.SIDEMENU_PROJECTS;
+        document.title = "Constance Oulès - " + strings[getLanguage()].SIDEMENU_PROJECTS;
     }
 
     getProjects = () => {

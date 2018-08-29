@@ -1,18 +1,23 @@
 .photos {
-    padding-top: 50px;
+    padding-bottom: 50px;
     width: 500px;
+    padding-top: 47px;
+    padding-left: 50px;
+    padding-right: 50px;
 
     img {
-        display: block;
+        width: 100%!important;
+        height: 100%!important;
+    }
+
+    .photo {
+        display: flex;
         height: 100%;
         width: 100%;
         // object-fit: cover;
-    }
 
-    @media screen and(max-width: 600px) {
-        width: 80%;
-        div {
-            // width: 100%!important;
+        .img-container {
+            height: auto!important;
         }
     }
 
