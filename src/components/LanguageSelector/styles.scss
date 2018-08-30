@@ -1,6 +1,8 @@
 .language-selector {
     padding-top: 35px;
-
+    display: flex;
+    align-items: center;
+    
     @media screen and (max-width: 900px) {
         position: absolute;
         top: 150px;
@@ -14,7 +16,7 @@
     span {
         padding: 10px;
         font-size: 28px;
-        font-family: "serif";
+        transform: scale(0.3, 1);
     }
     a {
         cursor: pointer;

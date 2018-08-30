@@ -29,6 +29,9 @@ div.sidemenu {
             padding-top: 50px;
             font-size: 28px;
             font-weight: 300;
+            position: fixed;
+            bottom: 0;
+            top: 0;
             &.open {
                 width: 50%;
                 background: rgba(255, 255, 255, 0.7);

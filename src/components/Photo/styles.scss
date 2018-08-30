@@ -1,7 +1,6 @@
 .photo {
     position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
     cursor: pointer;
     user-select: none;
@@ -10,10 +9,10 @@
 
     .img-container {
         position: relative;
-        display: flex;
+        display: block;
         a.cross {
             position: absolute;
-            top: -35px;
+            top: -30px;
             right: 0;
             cursor: pointer!important;
             img {
@@ -29,33 +28,32 @@
         @media screen and(max-width: 900px) {
             height: 400px;
             a.cross {
-                top: -60px;
+                top: -35px;
                 right: 0;
                 img {
-                    width: 50px;
+                    width: 32px;
                 }
             }
         }
     }
 
     &.zoom {
-        width: 100%;
+        width: 100vw;
         position: fixed;
         left: 0;
         top: 0;
-        height: 100%;
+        height: 100vh;
         background: white;
         z-index: 10;
         margin: 0!important;
-        
+        align-items: center;
         .img-container {
-            transform: scale(1.2);
+            transform: scale(1.1);
             transition: all 0.4s ease;
+            max-width: 80%;
         }
-
+        
         img {
-            transition: all 0.4s ease;
-
             cursor: default;
         }
         @media screen and (max-width: 900px) {
@@ -79,13 +77,13 @@
     img {
         opacity: 1;
         transition: opacity 0.2s ease-in;
-        width: 300px;
+        width: 100%;
     }
 
     &.fade {
         &:hover {
             img {
-                opacity: 0.6;
+                opacity: 0.3;
             }
         }
     }

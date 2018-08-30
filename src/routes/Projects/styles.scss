@@ -4,6 +4,10 @@ div.projects {
     flex-direction: column;
     padding-top: 32px;
 
+    .photo {
+        align-items: center;
+    }
+
     a {
         margin: 15px 0;
     }

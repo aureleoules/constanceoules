@@ -51,6 +51,11 @@ class Project extends React.Component {
             {this.state.zoom}
                 <Photo
                     src={this.showcaseImage}
+                    isMobile={this.props.isMobile}
+                    removeZoom={e => this.setState({zoom: null})}
+                    onClick={() => this.setState({zoom: "showcase"})} 
+                    zoom={this.state.zoom === "showcase"}
+                    zoomable
                 />
                 <div className="infos">
                     <h3>{this.project.title}</h3>
