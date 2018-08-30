@@ -1,7 +1,6 @@
 import React from 'preact';
 
 import './styles.scss';
-import ClickOutside from 'react-click-outside';
 
 class Photo extends React.Component {
     onPhotoClick = e => {
@@ -26,7 +25,7 @@ class Photo extends React.Component {
                 ].join(" ")}>
                 <div className="img-container">
                     {this.props.zoom && <a className="cross">
-                        <img src={require("../../assets/icons/cross" + (this.props.isMobile ? "_mobile" : "") + ".svg")}/>
+                        <img alt="cross" src={require("../../assets/icons/cross" + (this.props.isMobile ? "_mobile" : "") + ".svg")}/>
                     </a>}
                         <img id="picture" alt={this.props.title || this.props.alt} src={this.props.src}/>
                 </div>
