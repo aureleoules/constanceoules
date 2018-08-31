@@ -33,12 +33,13 @@ class Project extends React.Component {
     getPhotos = () => {
         return this.project.pictures.map((name, i) => {
             const picture = require('../../assets/photos/' + this.project.title + '/' + name)
+            const hd = require('assets/photos/HD/' + this.project.title + '/' + name);
             return <Photo 
                 id={i} 
                 zoom={this.state.zoom === i}
                 zoomable
                 onClick={() => this.setState({zoom: i})} 
-                src={picture}
+                src={this.state.zoom === i ? hd : picture}
                 isMobile={this.props.isMobile}
                 removeZoom={e => this.setState({zoom: null})}
             />

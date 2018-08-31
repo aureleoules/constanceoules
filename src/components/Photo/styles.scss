@@ -50,7 +50,11 @@
         .img-container {
             transform: scale(1.1);
             transition: all 0.4s ease;
-            max-width: 80%;
+            max-width: 40%;
+
+            @media screen and (max-width: 900px) {
+                max-width: 70%;
+            }
         }
         
         img {

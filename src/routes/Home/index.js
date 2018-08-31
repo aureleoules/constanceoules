@@ -21,10 +21,11 @@ class Home extends React.Component {
 
 	getPicture = name => {
 		const src = require('assets/photos/Homepage/' + name + '.jpg');
+		const hd = require('assets/photos/HD/Homepage/' + name + '.jpg');
 		return <Photo 
 			onClick={() => this.setState({zoom: name})} 
 			removeZoom={e => this.setState({zoom: null})}
-			src={src} 
+			src={this.state.zoom === name ? hd : src} 
 			alt="Design"
 			zoom={this.state.zoom === name}
 			zoomable
