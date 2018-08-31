@@ -26,6 +26,7 @@ class Project extends React.Component {
                 document.title = "Constance Oulès - " + project.title;
 
                 this.showcaseImage = require('../../assets/photos/' + project.title + '/' + project.showcase);
+                this.hdShowcaseImage = require('../../assets/photos/HD/' + project.title + '/' + project.showcase);
             }
         });
     }
@@ -50,7 +51,7 @@ class Project extends React.Component {
             <div className="project">
             {this.state.zoom}
                 <Photo
-                    src={this.showcaseImage}
+                    src={this.state.zoom === "showcase" ? this.hdShowcaseImage : this.showcaseImage}
                     isMobile={this.props.isMobile}
                     removeZoom={e => this.setState({zoom: null})}
                     onClick={() => this.setState({zoom: "showcase"})} 
