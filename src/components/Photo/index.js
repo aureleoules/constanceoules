@@ -27,10 +27,14 @@ class Photo extends React.Component {
                     {this.props.zoom && <a className="cross">
                         <img alt="cross" src={require("../../assets/icons/cross" + (this.props.isMobile ? "_mobile" : "") + ".svg")}/>
                     </a>}
-                    <img 
+                    {this.props.zoom && <img 
                         id="picture" 
                         alt={this.props.title || this.props.alt} 
-                        src={this.props.src}/>
+                        src={this.props.src}/>}
+                    {!this.props.zoom && <img 
+                        id="picture" 
+                        alt={this.props.title || this.props.alt} 
+                        src={this.props.src}/>}
                 </div>
                 <div className="infos">
                     <h1>{this.props.title}</h1>
