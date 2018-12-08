@@ -17,7 +17,7 @@ class Contact extends React.Component {
             <div className="contact">
                 <Photo src={ContactPhoto} alt="contact"/>
                 <p>
-                    26 rue Simart
+                    11 Passage des Abbesses
                     <br/>
                     75018 Paris
                     <br/>

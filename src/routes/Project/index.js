@@ -49,7 +49,6 @@ class Project extends React.Component {
     render() {
         return (
             <div className="project">
-            {this.state.zoom}
                 <Photo
                     src={this.state.zoom === "showcase" ? this.hdShowcaseImage : this.showcaseImage}
                     isMobile={this.props.isMobile}

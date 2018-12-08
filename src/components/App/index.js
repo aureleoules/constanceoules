@@ -6,7 +6,10 @@ import Home from 'routes/Home';
 import Projects from 'routes/Projects';
 import Project from 'routes/Project';
 import About from 'routes/About';
+import Press from 'routes/Press';
 import Contact from 'routes/Contact';
+
+import Magazine from 'routes/Magazine';
 
 import { Router } from 'preact-router';
 
@@ -49,6 +52,10 @@ class App extends React.Component {
                 href: "/about"
             },
             {
+                title: strings[getLanguage()].SIDEMENU_PRESS,
+                href: "/press"
+            },
+            {
                 title: strings[getLanguage()].SIDEMENU_CONTACT,
                 href: "/contact"
             }
@@ -63,6 +70,8 @@ class App extends React.Component {
                         <Home path="/"/>
                         <Projects path="/projects"/>
                         <Project isMobile={this.state.mobileView} path="/project/:title"/>
+                        <Press isMobile={this.state.mobileView} path="/press"/>
+                        <Magazine path="/press/:title"/>
                         <About path="/about"/>
                         <Contact path="/contact"/>
                     </Router>
