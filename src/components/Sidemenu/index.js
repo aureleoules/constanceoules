@@ -40,7 +40,7 @@ class Sidemenu extends React.Component {
                 <div className="sidemenu">
                     {this.props.isMobile && (
                         <div className="mobile-logo-container">
-                            <Link onClick={() => this.setState({open: false})} href="/">
+                            <Link onClick={() => this.setState({open: false})} href="/" style={{height: 140}}>
                                 <img src={MobileLogo} alt="mobile"/>
                             </Link>
                             <LanguageSelector onSelect={lang => setLanguage(lang)} active={getLanguage()}/>
