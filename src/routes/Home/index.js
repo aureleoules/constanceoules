@@ -34,7 +34,7 @@ class Home extends React.Component {
 		rows.forEach((row, i) => {
 			parsedRows[i] = {
 				columns: [],
-				count: row.count
+				count: row.photos.length
 			}
 			let alreadySplit = false;
 			row.photos.forEach((photo) => {
@@ -96,6 +96,7 @@ class Home extends React.Component {
 			return (	
 				<div className="photos">
 					{this.state.rows.map((row, index) => {
+						console.log(row);
 						return (
 							<div className={["row", row.count === 3 ? "three" : ""].join(" ")}>
 								{row.columns.map((column, i) => {
