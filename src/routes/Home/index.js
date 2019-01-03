@@ -2,8 +2,6 @@ import React from 'preact';
 
 import './styles.scss';
 
-import rows from './pictures.json';
-
 import Photo from 'components/Photo';
 
 import client from 'services/client';

@@ -33,6 +33,9 @@ class App extends React.Component {
         window.addEventListener("language", () => {
             this.forceUpdate();
         });
+        if(process.env.NODE_ENV !== "development") {
+            window.console.log = () => {};
+        }
     }
 
     onRouteChange = ({url}) => {

@@ -1,12 +1,11 @@
 import React from 'preact';
 
-import magazines from 'press.json';
-
 import Photo from 'components/Photo';
 import { getLanguage } from 'utils';
 
 import './styles.scss';
 
+import client from 'services/client';
 
 class Project extends React.Component {
 
@@ -14,20 +13,41 @@ class Project extends React.Component {
         super(props);
         this.magazine = {};
         this.state = {
-            zoom: null
+            zoom: null,
+            photos: [],
+            title: "",
+            description_en: "",
+            description_fr: "",
+            subtitle: ""
         }
     }
 
     componentWillMount() {
-        magazines.forEach(magazine => {
-            if (magazine.title === this.props.title) {
-                this.magazine = magazine;
 
-                document.title = "Constance Oulès - " + magazine.title;
+        client.get('/work/title/' + this.props.title).then(response => {
+            const work = response.data.payload;
+            console.log(work);
+            this.setState({...work});
+            document.title = "Constance Oulès - " + work.title;
+        }).catch(err => {
+            if(err) throw err;
+        })
+    }
 
-                this.showcaseImage = require('../../assets/photos/Press/' + magazine.title + '.jpg');
-                this.page = require('../../assets/photos/Press/' + magazine.title + "_PAGE.jpg");
+    getPhotos = () => {
+        return this.state.photos.map((photo, i) => {
+            if (this.state.preview_image_id !== photo.id) {
+                return <Photo 
+                    id={i} 
+                    zoom={this.state.zoom === i}
+                    zoomable
+                    onClick={() => this.setState({zoom: i})} 
+                    src={photo.url}
+                    isMobile={this.props.isMobile}
+                    removeZoom={e => this.setState({zoom: null})}
+                />
             }
+            return null;
         });
     }
 
@@ -35,19 +55,19 @@ class Project extends React.Component {
         return (
             <div className="project">
                 <Photo
-                    src={this.showcaseImage}
+                    src={this.state.preview_image}
                     isMobile={this.props.isMobile}
+                    removeZoom={e => this.setState({zoom: null})}
+                    onClick={() => this.setState({zoom: "showcase"})} 
+                    zoom={this.state.zoom === "showcase"}
+                    zoomable
                 />
                 <div className="infos">
-                    <h3>{this.magazine.title}</h3>
-                    <p>{this.magazine.subtitle}</p>
+                    <h3>{this.state.title}</h3>
+                    <p>{this.state.subtitle}</p>
                 </div>
-                <p>{this.magazine.description[getLanguage()]}</p>
-
-                <Photo
-                    src={this.page}
-                    isMobile={this.props.isMobile}
-                />
+                <p>{this.state["description_" + getLanguage()]}</p>
+                {this.getPhotos()}
             </div>
         )
     }

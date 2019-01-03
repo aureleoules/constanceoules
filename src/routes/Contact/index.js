@@ -6,10 +6,29 @@ import './styles.scss';
 
 import Photo from 'components/Photo';
 
+import client from 'services/client';
+
 class Contact extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            address: "",
+            email: "",
+            phone: ""
+        }
+    }
+
     componentDidMount() {
-        document.title = "Constance Oulès - Contact"
+        document.title = "Constance Oulès - Contact";
+
+        client.get('/content/contact').then(response => {
+            console.log(response.data);
+            const content = response.data.payload;
+            this.setState({...content});
+        }).catch(err => {
+            if(err) throw err;
+        });
     }
 
     render() {
@@ -17,13 +36,13 @@ class Contact extends React.Component {
             <div className="contact">
                 <Photo src={ContactPhoto} alt="contact"/>
                 <p>
-                    11 Passage des Abbesses
+                    {this.state.address}
                     <br/>
-                    75018 Paris
+                    {this.state.city}
                     <br/>
-                    contact@constanceoules.com
+                    {this.state.email}
                     <br/>
-                    +33 6 72 73 94 56
+                    {this.state.phone}
                 </p>
             </div>
         )
