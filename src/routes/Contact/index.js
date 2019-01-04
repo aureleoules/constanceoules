@@ -1,6 +1,6 @@
 import React from 'preact';
 
-import ContactPhoto from 'assets/photos/contact.jpg';
+import ContactPhoto from 'assets/photos/contact2.jpg';
 
 import './styles.scss';
 
