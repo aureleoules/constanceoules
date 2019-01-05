@@ -10,6 +10,7 @@
     .img-container {
         position: relative;
         display: block;
+        width: 100%;
         a.cross {
             position: absolute;
             top: -30px;
@@ -26,7 +27,7 @@
         }
 
         @media screen and(max-width: 900px) {
-            height: 400px;
+            // height: 400px;
             a.cross {
                 top: -35px;
                 right: 0;
