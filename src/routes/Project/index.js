@@ -1,12 +1,11 @@
 import React from 'preact';
 
-import projects from 'projects.json';
-
 import Photo from 'components/Photo';
 import { getLanguage } from 'utils';
 
 import './styles.scss';
 
+import client from 'services/client';
 
 class Project extends React.Component {
 
@@ -14,35 +13,39 @@ class Project extends React.Component {
         super(props);
         this.project = {};
         this.state = {
-            zoom: null
+            zoom: null,
+            photos: [],
+            title: "",
+            subtitle: "",
+            description_en: "",
+            description_fr: ""
         }
     }
 
     componentWillMount() {
-        projects.forEach(project => {
-            if(project.title === this.props.title) {
-                this.project = project;
-
-                document.title = "Constance Oulès - " + project.title;
-
-                this.showcaseImage = require('../../assets/photos/' + project.title + '/' + project.showcase);
-                this.hdShowcaseImage = require('../../assets/photos/HD/' + project.title + '/' + project.showcase);
-            }
+        // document.title = "Constance Oulès - " + project.title;
+        client.get('/galleries/title/' + this.props.title).then(response => {
+            const gallery = response.data.payload;
+            this.setState({...gallery});
+        }).catch(err => {
+            if(err) throw err;
         });
     }
 
     getPhotos = () => {
-        return this.project.pictures.map((name, i) => {
-            const picture = require('../../assets/photos/' + this.project.title + '/' + name)
-            return <Photo 
-                id={i} 
-                zoom={this.state.zoom === i}
-                zoomable
-                onClick={() => this.setState({zoom: i})} 
-                src={this.state.zoom === i ? require('assets/photos/HD/' + this.project.title + '/' + name) : picture}
-                isMobile={this.props.isMobile}
-                removeZoom={e => this.setState({zoom: null})}
-            />
+        return this.state.photos.map((photo, i) => {
+            if (this.state.preview_image_id !== photo.id) {
+                return <Photo 
+                    id={i} 
+                    zoom={this.state.zoom === i}
+                    zoomable
+                    onClick={() => this.setState({zoom: i})} 
+                    src={photo.url}
+                    isMobile={this.props.isMobile}
+                    removeZoom={e => this.setState({zoom: null})}
+                />
+            }
+            return null;
         });
     }
 
@@ -50,7 +53,7 @@ class Project extends React.Component {
         return (
             <div className="project">
                 <Photo
-                    src={this.state.zoom === "showcase" ? this.hdShowcaseImage : this.showcaseImage}
+                    src={this.state.preview_image}
                     isMobile={this.props.isMobile}
                     removeZoom={e => this.setState({zoom: null})}
                     onClick={() => this.setState({zoom: "showcase"})} 
@@ -58,10 +61,10 @@ class Project extends React.Component {
                     zoomable
                 />
                 <div className="infos">
-                    <h3>{this.project.title}</h3>
-                    <p>{this.project.subtitle}</p>
+                    <h3>{this.state.title}</h3>
+                    <p>{this.state.subtitle}</p>
                 </div>
-                <p>{this.project.description[getLanguage()]}</p>
+                <p>{this.state["description_" + getLanguage()]}</p>
                 {this.getPhotos()}
             </div>
         )
