@@ -35,7 +35,12 @@ class About extends React.Component {
         return (
             <div className="about">
                 <Photo src={this.state.image_url} alt="about"/>
-                <p>{this.state["content_" + getLanguage()]}</p>
+                {this.state["content_" + getLanguage()].split('\n').map((block, i) => {
+                    return (
+                        <p key={i}>{block}</p>
+                    )
+                })
+                }
             </div>
         )
     }

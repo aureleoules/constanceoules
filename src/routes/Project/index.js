@@ -23,7 +23,7 @@ class Project extends React.Component {
     }
 
     componentWillMount() {
-        // document.title = "Constance Oulès - " + project.title;
+        document.title = "Constance Oulès - " + this.props.title;
         client.get('/galleries/title/' + this.props.title).then(response => {
             const gallery = response.data.payload;
             this.setState({...gallery});

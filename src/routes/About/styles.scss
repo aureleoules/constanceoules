@@ -7,13 +7,14 @@
             justify-content: center;
         } 
         justify-content: left;
+        margin-bottom: 50px;
     }
     p {
         max-width: 300px;
-        padding-top: 30px;
-        white-space: pre-line;
         margin: 0;
         text-align: justify;
-        padding-bottom: 50px;
+        padding-bottom: 10px;
+        text-align-last: left;
+        text-justify: inter-word;
     }
 }
