@@ -2,6 +2,8 @@ import React from 'preact';
 
 import './styles.scss';
 
+import {lowQuality, highQuality} from 'utils';
+
 class Photo extends React.Component {
     onPhotoClick = e => {
         if(this.props.zoom && e.target.id !== "picture") {
@@ -30,11 +32,11 @@ class Photo extends React.Component {
                     {this.props.zoom && <img 
                         id="picture" 
                         alt={this.props.title || this.props.alt} 
-                        src={this.props.src}/>}
+                        src={highQuality(this.props.src)}/>}
                     {!this.props.zoom && <img 
                         id="picture" 
                         alt={this.props.title || this.props.alt} 
-                        src={this.props.src}/>}
+                        src={lowQuality(this.props.src)}/>}
                 </div>
                 <div className="infos">
                     <h1>{this.props.title}</h1>

@@ -15,3 +15,11 @@ export const setLanguage = lang => {
         }
     });
 }
+
+export const lowQuality = url => {
+    return url.replace('upload/', 'upload/c_limit,h_750,q_auto:good/');
+}
+
+export const highQuality = url => {
+    return url.replace('upload/', 'upload/q_auto:best/');
+}

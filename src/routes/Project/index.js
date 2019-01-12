@@ -18,7 +18,8 @@ class Project extends React.Component {
             title: "",
             subtitle: "",
             description_en: "",
-            description_fr: ""
+            description_fr: "",
+            preview_image: ""
         }
     }
 
