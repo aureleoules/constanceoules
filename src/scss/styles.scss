@@ -66,10 +66,10 @@ body, html, #root {
     justify-content: center;
 }
 .app {
-    height: 100%;
     position: absolute;
-
+    
     @media screen and (max-width: 900px) {
+        padding-bottom: 25px;
         left: 0;
         top: 150px;
         display: flex;

@@ -1,7 +1,7 @@
 .project {
     padding-top: 32px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     .infos {
         h3 {
             text-align: center;
@@ -17,7 +17,15 @@
 
     .photo {
         margin: 15px 0;
+        @media screen and (max-width: 600px) {
+            &.zoom {
+                img {
+                    width: 100%;
+                }
+            }
+        }
     }
+
     img {
         width: 300px;
     }
