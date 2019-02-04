@@ -27,9 +27,7 @@ class Home extends React.Component {
 		})
 	}
 
-	//jesus fucking christ i know it's bad but works fucking well
 	parseData = rows => {
-		console.time("hey");
 		const parsedRows = [];
 		rows.forEach((row, i) => {
 			parsedRows[i] = {
@@ -59,7 +57,6 @@ class Home extends React.Component {
 				}
 			});
 		});
-		console.timeEnd("hey");
 		return parsedRows;
 	}
 
@@ -96,7 +93,6 @@ class Home extends React.Component {
 			return (	
 				<div className="photos">
 					{this.state.rows.map((row, index) => {
-						console.log(row);
 						return (
 							<div className={["row", row.count === 3 ? "three" : ""].join(" ")}>
 								{row.columns.map((column, i) => {

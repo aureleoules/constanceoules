@@ -23,7 +23,6 @@ class Contact extends React.Component {
         document.title = "Constance Oulès - Contact";
 
         client.get('/content/contact').then(response => {
-            console.log(response.data);
             const content = response.data.payload;
             this.setState({...content});
         }).catch(err => {

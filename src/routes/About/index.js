@@ -23,7 +23,6 @@ class About extends React.Component {
     componentDidMount() {
         document.title = "Constance Oulès - " + strings[getLanguage()].SIDEMENU_ABOUT;
         client.get('/content/about').then(response => {
-            console.log(response.data);
             const content = response.data.payload;
             this.setState({...content});
         }).catch(err => {

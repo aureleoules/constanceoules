@@ -24,7 +24,6 @@ class Projects extends React.Component {
         document.title = "Constance Oulès - " + strings[getLanguage()].SIDEMENU_PROJECTS;
         client.get('/galleries').then(response => {
             const projects = response.data.payload || [];
-            console.log(projects);
             this.setState({projects});
         }).catch(err => {
             if(err) throw err;

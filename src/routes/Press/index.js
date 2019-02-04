@@ -23,7 +23,6 @@ class Projects extends React.Component {
     componentDidMount() {
         document.title = "Constance Oulès - " + strings[getLanguage()].SIDEMENU_PRESS;
         client.get('/work').then(response => {
-            console.log(response.data);
             const work = response.data.payload || [];
             this.setState({work});;
         });

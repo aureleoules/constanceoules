@@ -33,6 +33,10 @@ class App extends React.Component {
         window.addEventListener("language", () => {
             this.forceUpdate();
         });
+
+        console.info("Code available on GitHub", "https://github.com/aureleoules/constanceoules");
+        console.info("Website Designer", "https://aurele.oules.com")
+
         if(process.env.NODE_ENV !== "development") {
             window.console.log = () => {};
         }

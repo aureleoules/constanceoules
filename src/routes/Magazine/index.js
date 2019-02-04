@@ -26,7 +26,6 @@ class Project extends React.Component {
 
         client.get('/work/title/' + this.props.title).then(response => {
             const work = response.data.payload;
-            console.log(work);
             this.setState({...work});
             document.title = "Constance Oulès - " + work.title;
         }).catch(err => {
