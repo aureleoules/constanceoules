@@ -20,7 +20,7 @@ class Photo extends React.Component {
                 setTimeout(() => {
                     if(!this.pictureRef) return check();
                     if(!this.pictureRef.naturalWidth || !this.pictureRef.naturalHeight) return check();
-                    const width = 0.85 * (this.pictureRef.naturalWidth * (this.pictureRef.naturalWidth / this.pictureRef.naturalHeight));
+                    const width = 0.80 * (800 * (this.pictureRef.naturalWidth / this.pictureRef.naturalHeight));
                     this.setState({
                         currentHeight: window.innerWidth >= 900 ? 85 : null, 
                         currentWidth: window.innerWidth >= 900 ? width : null,

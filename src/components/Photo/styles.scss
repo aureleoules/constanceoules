@@ -68,6 +68,8 @@
             cursor: default;
             transition: none!important;
             opacity: 0;
+            // height: 95%;
+            width: 100%;
         }
         @media screen and (max-width: 900px) {
             @at-root.sidemenu {
