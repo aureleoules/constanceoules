@@ -23,6 +23,15 @@ class Project extends React.Component {
         }
     }
 
+    getId(url) {
+        var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        if (match && match[2].length == 11) {
+            return match[2];
+        }
+        return "";
+    }
+
     componentWillMount() {
 
         client.get('/work/title/' + this.props.title).then(response => {
@@ -37,6 +46,16 @@ class Project extends React.Component {
     getPhotos = () => {
         return this.state.photos.map((photo, i) => {
             if (this.state.preview_image_id !== photo.id) {
+                if(photo.format === "youtube") {
+                    return <iframe 
+                        width="800" 
+                        height="480" 
+                        src={"https://www.youtube.com/embed/" + this.getId(photo.url)}
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                    />
+                }
                 return <Photo 
                     id={i} 
                     zoom={this.state.zoom === i}
