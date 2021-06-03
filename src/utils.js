@@ -17,9 +17,11 @@ export const setLanguage = lang => {
 }
 
 export const lowQuality = url => {
-    return url.replace('upload/', 'upload/c_limit,h_750,q_auto:good/');
+    if(url) return url.replace('upload/', 'upload/c_limit,h_750,q_auto:good/');
+    return undefined;
 }
 
 export const highQuality = url => {
-    return url.replace('upload/', 'upload/q_auto:best/');
+    if(url) return url.replace('upload/', 'upload/q_auto:best/');
+    return undefined;
 }
