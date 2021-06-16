@@ -3,6 +3,7 @@ import React from 'preact';
 import './styles.scss';
 
 import Photo from 'components/Photo';
+import HomePhoto from '../../assets/photos/home.jpg';
 
 import client from 'services/client';
 
@@ -12,19 +13,19 @@ class Home extends React.Component {
 		super(props);
 		this.state = {
 			zoom: null,
-			rows: []
+			// rows: []
 		}
 	}
 
 	componentDidMount() {
 		document.title = "Constance Oulès - Interior Design";
-		client.get('/rows').then(response => {
-			const rows = response.data.payload || [];
-			const parsedRows = this.parseData(rows);
-			this.setState({rows: parsedRows});
-		}).catch(err => {
-			if(err) throw err;
-		})
+		// client.get('/rows').then(response => {
+		// 	const rows = response.data.payload || [];
+		// 	const parsedRows = this.parseData(rows);
+		// 	this.setState({rows: parsedRows});
+		// }).catch(err => {
+		// 	if(err) throw err;
+		// })
 	}
 
 	parseData = rows => {
@@ -92,7 +93,17 @@ class Home extends React.Component {
     render() {
 			return (	
 				<div className="photos">
-					{this.state.rows.map((row, index) => {
+					<Photo 
+						onClick={() => this.setState({zoom: "photo"})} 
+						removeZoom={e => this.setState({zoom: null})}
+						src={HomePhoto} 
+						alt="Design"
+						zoom={this.state.zoom === "photo"}
+						zoomable
+						isMobile={this.props.isMobile}
+					/>
+		
+					{/* {this.state.rows.map((row, index) => {
 						return (
 							<div className={["row", row.count === 3 ? "three" : ""].join(" ")}>
 								{row.columns.map((column, i) => {
@@ -117,7 +128,7 @@ class Home extends React.Component {
 								})}
 							</div>
 						)
-					})}
+					})} */}
 				</div>
 			);
     }
