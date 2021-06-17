@@ -8,6 +8,10 @@ div.magazines {
 
     .photo {
         align-items: center;
+
+        img {
+            max-width: 300px;
+        }
     }
 
     a {
